@@ -1,8 +1,31 @@
-import React from 'react';
+import React, { useState} from 'react';
+
+
 
 function Formulario(props) {
+
+    //state
+    const [ nombreGasto, guardarNombreGasto ] = useState('');
+    const [ cantidadGasto, guardarCantidadGasto ] = useState(0);
+    const [ error, guardarError] = useState(false);
+
+    //metodo para agregar el gasto
+    const agregarGasto = e => {
+        e.preventDefault();
+        //validar
+        if( cantidadGasto < 1 || isNaN( cantidadGasto ) || nombreGasto === '') {
+            guardarError(true);
+            return;
+        }
+    }
+
+    
+
+
     return(
-        <form>
+        <form
+            onSubmit={agregarGasto}
+        >
             <h2>Agrega tus Gastos</h2>
 
             <div className="campo">
@@ -11,6 +34,7 @@ function Formulario(props) {
                     type="text"
                     className="u-full-width"
                     placeholder="Ej. Transorte"
+                    onChange={e => guardarNombreGasto(e.target.value)}
                 />
             </div>
 
@@ -20,6 +44,7 @@ function Formulario(props) {
                     type="number"
                     className="u-full-width"
                     placeholder="Ej. Transorte"
+                    onChange={e => guardarCantidadGasto(parseInt(e.target.value, 10) )}
                 />
             </div>
 
