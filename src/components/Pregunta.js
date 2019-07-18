@@ -1,6 +1,9 @@
 import React, { Fragment, useState } from 'react';
 
-function Pregunta() {
+function Pregunta(props) {
+
+    //aqui estamos pasando por props para mandar al state principal
+    const { guardarPresupuesto, guardarPreguntaPresupuesto } = props;
     
     //definir el state 
     const [ cantidad, guardarCantidad] = useState(0);
@@ -15,6 +18,11 @@ function Pregunta() {
             guardarError(true);
             return;
         }
+
+        //si se pasa la validacion 
+        guardarError(false);
+        guardarPresupuesto( cantidad );
+        guardarPreguntaPresupuesto(false);
     }
 
     return(

@@ -1,8 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Pregunta from './components/Pregunta';
 
 
 function App() {
+
+  //state del presupuesto 
+  const [ presupuesto, guardarPresupuesto] = useState(0);
+  const [ preguntaPresupuesto, guardarPreguntaPresupuesto] = useState(true);
+
+
   return (
     <div className="App container">
       <header>
@@ -10,7 +16,20 @@ function App() {
       </header>
 
       <div className="contenido-principal contenido">
-          <Pregunta />
+          { (preguntaPresupuesto)
+            ?
+              <Pregunta
+                guardarPresupuesto={guardarPresupuesto}
+                preguntaPresupuesto={guardarPreguntaPresupuesto}        
+               />
+            : (
+                <div className="row">
+                  <h1>Formulario aqui</h1>
+                </div>
+
+                <div className="row"></div>
+              )   
+          }
       </div>
     </div>
   );
