@@ -31,13 +31,13 @@ function Pregunta(props) {
         <Fragment>
             <h2>Coloca tu Presupuesto</h2>
 
-            {error ? <Error mensaje='El presumpuesto es incorrecto'/> : null }
+            {error ? <Error mensaje='El presupuesto es incorrecto'/> : null }
 
             <form
                 onSubmit={agregarPresupuesto}
             >
                 <input type="number"
-                       className="u-full-width"
+                       className="u-full-width "
                        placeholder="Agrega tu Presupuesto"
                        onChange={e => guardarCantidad(parseInt(e.target.value, 10))}
                  />

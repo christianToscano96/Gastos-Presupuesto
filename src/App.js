@@ -25,6 +25,10 @@ function App() {
         const listadoGastos = [...gastos, gasto];
         guardarGastos(listadoGastos);
 
+        //restar el presupuesto
+        const presupuestoRestante = restante - gasto.cantidadGasto;
+        guardarRestante(presupuestoRestante);
+
         //una vez que se agrega, lo ponemos en false
         guardarCrearGasto(false);
       }

@@ -66,7 +66,7 @@ function Formulario(props) {
                 <input 
                     type="number"
                     className="u-full-width"
-                    placeholder="Ej. Transorte"
+                    placeholder="Ej. $200"
                     onChange={e => guardarCantidadGasto(parseInt(e.target.value, 10) )}
                     value= {cantidadGasto}
                 />
