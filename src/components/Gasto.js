@@ -12,7 +12,9 @@ const Gasto = ({gasto}) => {
                 <span className="gasto">$ {gasto.cantidadGasto}</span>
             </p>
 
-            <button type="button"
+            <button 
+                type="button"
+                className="btn-delete"
                 onClick={() => eliminarGasto(gasto.id)}
             >
                 Eliminar
