@@ -1,10 +1,12 @@
 import React, { useState} from 'react';
 import Error from './Error';
+import shortid from 'shortid';
 
 
 
 function Formulario(props) {
 
+    const {guardarGasto} = props;
     //state
     const [ nombreGasto, guardarNombreGasto ] = useState('');
     const [ cantidadGasto, guardarCantidadGasto ] = useState(0);
@@ -18,10 +20,26 @@ function Formulario(props) {
             guardarError(true);
             return;
         }
+
+      
+
+        //construir un objeto de gasto
+        const gasto = {
+            nombreGasto,
+            cantidadGasto,
+            id: shortid.generate()          
+        }
+
+         //pasar el gasto al componente principal
+        guardarGasto();
+
+        //eliminar alerta
+        guardarError(false);
+
+        //resetear el form
+        guardarNombreGasto('');
+        guardarCantidadGasto('');
     }
-
-    
-
 
     return(
         <form
@@ -38,6 +56,7 @@ function Formulario(props) {
                     className="u-full-width"
                     placeholder="Ej. Transorte"
                     onChange={e => guardarNombreGasto(e.target.value)}
+                    value= {nombreGasto}
                 />
             </div>
 
@@ -48,10 +67,11 @@ function Formulario(props) {
                     className="u-full-width"
                     placeholder="Ej. Transorte"
                     onChange={e => guardarCantidadGasto(parseInt(e.target.value, 10) )}
+                    value= {cantidadGasto}
                 />
             </div>
 
-            <input type="submit" className="button-primary u-full-width" value="Agregar Gasto" />
+            <input type="submit" className="button btn-color u-full-width" value="Agregar Gasto" />
         </form>
     );
 }

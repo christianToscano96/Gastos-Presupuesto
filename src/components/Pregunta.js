@@ -41,7 +41,7 @@ function Pregunta(props) {
                        onChange={e => guardarCantidad(parseInt(e.target.value, 10))}
                  />
 
-                 <input type="submit" className="button-primary u-full-width" value="Definir Presupuesto" />
+                 <input type="submit" className="button btn-color u-full-width" value="Definir Presupuesto" />
 
             </form>
         </Fragment>

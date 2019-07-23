@@ -9,6 +9,10 @@ function App() {
   //state del presupuesto 
   const [ presupuesto, guardarPresupuesto] = useState(0);
   const [ preguntaPresupuesto, guardarPreguntaPresupuesto] = useState(true);
+  //gastos enviados del formulario se lo guarda como un objeto
+  const [ gasto, guardarGasto ] = useState({});
+  //los gastos despues se guardaran en un arreglo de gastos
+  const [ gastos, guardarGastos ] = useState([]);
 
 
   return (
@@ -27,7 +31,9 @@ function App() {
             : (           
                   <div className="row">
                     <div className="one-half column"> 
-                      <Formulario />
+                      <Formulario
+                        guardarGasto={guardarGasto}
+                      />
                     </div>
         
                     <div className="one-half column"></div>
