@@ -3,12 +3,15 @@ import React, {useState, useEffect} from 'react';
 import Pregunta from './components/Pregunta';
 import Formulario from './components/Formulario';
 import Listado from './components/Listado';
+import ControlPresupuesto from './components/ControlPresupuesto';
 
 
 function App() {
 
   //state del presupuesto 
   const [ presupuesto, guardarPresupuesto] = useState(0);
+  //retante del presupuesto
+  const [restante, guardarRestante ] = useState(0);
   const [ preguntaPresupuesto, guardarPreguntaPresupuesto] = useState(true);
   const [ crearGasto, guardarCrearGasto ] = useState(false);
   //gastos enviados del formulario se lo guarda como un objeto
@@ -40,7 +43,8 @@ function App() {
             ?
               <Pregunta
                 guardarPresupuesto={guardarPresupuesto}
-                guardarPreguntaPresupuesto={guardarPreguntaPresupuesto}        
+                guardarPreguntaPresupuesto={guardarPreguntaPresupuesto}   
+                guardarRestante={guardarRestante}     
                />
             : (           
                   <div className="row">
@@ -54,6 +58,10 @@ function App() {
                     <div className="one-half column">
                       <Listado
                         gastos={gastos}
+                      />
+                      <ControlPresupuesto
+                        presupuesto={presupuesto}
+                        restante={restante}
                       />
                     </div>
                   </div>                  

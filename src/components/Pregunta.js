@@ -4,7 +4,7 @@ import Error from './Error';
 function Pregunta(props) {
 
     //aqui estamos pasando por props para mandar al state principal
-    const { guardarPresupuesto, guardarPreguntaPresupuesto } = props;
+    const { guardarPresupuesto, guardarPreguntaPresupuesto, guardarRestante } = props;
     
     //definir el state 
     const [ cantidad, guardarCantidad] = useState(0);
@@ -23,6 +23,7 @@ function Pregunta(props) {
         //si se pasa la validacion 
         guardarError(false);
         guardarPresupuesto( cantidad );
+        guardarRestante(cantidad);
         guardarPreguntaPresupuesto(false);
     }
 
