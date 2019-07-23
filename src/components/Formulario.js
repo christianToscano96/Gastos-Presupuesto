@@ -31,7 +31,7 @@ function Formulario(props) {
         }
 
          //pasar el gasto al componente principal
-        guardarGasto();
+        guardarGasto(gasto);
         guardarCrearGasto(true);
 
         //eliminar alerta

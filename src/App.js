@@ -21,8 +21,11 @@ function App() {
       if(crearGasto) {
         const listadoGastos = [...gastos, gasto];
         guardarGastos(listadoGastos);
+
+        //una vez que se agrega, lo ponemos en false
+        guardarCrearGasto(false);
       }
-  }, []);
+  }, [crearGasto]);
 
 
 
