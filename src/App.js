@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 //componentes
 import Pregunta from './components/Pregunta';
 import Formulario from './components/Formulario';
+import Listado from './components/Listado';
 
 
 function App() {
@@ -9,10 +10,20 @@ function App() {
   //state del presupuesto 
   const [ presupuesto, guardarPresupuesto] = useState(0);
   const [ preguntaPresupuesto, guardarPreguntaPresupuesto] = useState(true);
+  const [ crearGasto, guardarCrearGasto ] = useState(false);
   //gastos enviados del formulario se lo guarda como un objeto
   const [ gasto, guardarGasto ] = useState({});
   //los gastos despues se guardaran en un arreglo de gastos
   const [ gastos, guardarGastos ] = useState([]);
+
+  //usamos useEffect
+  useEffect(() => {
+      if(crearGasto) {
+        const listadoGastos = [...gastos, gasto];
+        guardarGastos(listadoGastos);
+      }
+  }, []);
+
 
 
   return (
@@ -33,10 +44,15 @@ function App() {
                     <div className="one-half column"> 
                       <Formulario
                         guardarGasto={guardarGasto}
+                        guardarCrearGasto={guardarCrearGasto}
                       />
                     </div>
         
-                    <div className="one-half column"></div>
+                    <div className="one-half column">
+                      <Listado
+                        gastos={gastos}
+                      />
+                    </div>
                   </div>                  
               )   
           }
