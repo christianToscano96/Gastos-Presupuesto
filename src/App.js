@@ -4,6 +4,7 @@ import Pregunta from './components/Pregunta';
 import Formulario from './components/Formulario';
 import Listado from './components/Listado';
 import ControlPresupuesto from './components/ControlPresupuesto';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -68,10 +69,12 @@ function App() {
                         restante={restante}
                       />
                     </div>
+                    
                   </div>                  
               )   
           }
       </div>
+      <Footer/>
     </div>
   );
 }
