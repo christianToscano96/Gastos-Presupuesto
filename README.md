@@ -1,3 +1,13 @@
+<h1>Gasto Semanal con React Hooks </h1>
+Una aplicación que te permitirá ingresar nuestro presupuesto y tener un listado de ello, lo cual nos permitira saber tambien undo se esta por acabar el mismo.
+
+<div align="center"> 
+     <img width="45%" src="img1.png" alt="About screen" title="About screen"</img> 
+     <img height="0" width="8px"> 
+     
+</div> 
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
